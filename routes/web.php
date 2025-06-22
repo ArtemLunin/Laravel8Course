@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LaravelController;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,23 +20,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/hello', function() {
-//     return view('hello', [
-//         "name" => "Artem",
-//         "skills" => ["HTML5", "CSS3", "JS", "PHP"]
-//     ]);
-// });
+// Route::get('/hello', [PagesController::class, "helloPage"]);
+// Route::get('/test', [PagesController::class, "testPage"]);
 
-Route::get('/hello', [PagesController::class, "helloPage"]);
-Route::get('/test', [PagesController::class, "testPage"]);
+// Route::get('/laravel', [LaravelController::class, "laravelPage"]);
 
-Route::get('/laravel', [LaravelController::class, "laravelPage"]);
+// Route::get('/todos', [PagesController::class, "todos"]);
+// Route::get('/todos/done', [PagesController::class, "todosDone"]);
+// Route::get('/todos/not-done', [PagesController::class, "todosNotDone"]);
+Route::get('/students', [StudentsController::class, "students"]);
 
-// Route::get('/laravel', function() {
-//     return view('laravel', [
-//         "descr" => ["Laravel Jetstream", "Models Directory", "Model Factory Classes"]
-//     ]);
-// });
 
 
 Route::get('/first-page', function() {
