@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\LaravelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +19,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function() {
-    return view('hello', [
-        "name" => "Artem",
-        "skills" => ["HTML5", "CSS3", "JS", "PHP"]
-    ]);
-});
+// Route::get('/hello', function() {
+//     return view('hello', [
+//         "name" => "Artem",
+//         "skills" => ["HTML5", "CSS3", "JS", "PHP"]
+//     ]);
+// });
 
-Route::get('/laravel', function() {
-    return view('laravel', [
-        "descr" => ["Laravel Jetstream", "Models Directory", "Model Factory Classes"]
-    ]);
-});
+Route::get('/hello', [PagesController::class, "helloPage"]);
+Route::get('/test', [PagesController::class, "testPage"]);
 
-Route::get('/test', function() {
-    return view('test');
-});
+Route::get('/laravel', [LaravelController::class, "laravelPage"]);
+
+// Route::get('/laravel', function() {
+//     return view('laravel', [
+//         "descr" => ["Laravel Jetstream", "Models Directory", "Model Factory Classes"]
+//     ]);
+// });
+
 
 Route::get('/first-page', function() {
     return "<h1 style=\"font-family: Arial;\">This is my first page in Laravel</h1>";
