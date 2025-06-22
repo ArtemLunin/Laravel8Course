@@ -24,6 +24,12 @@ Route::get('/hello', function() {
     ]);
 });
 
+Route::get('/laravel', function() {
+    return view('laravel', [
+        "descr" => ["Laravel Jetstream", "Models Directory", "Model Factory Classes"]
+    ]);
+});
+
 Route::get('/test', function() {
     return view('test');
 });
