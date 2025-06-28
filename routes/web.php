@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,9 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get('/', [PagesController::class, "blogPage"]);
+Route::get('/', [PagesController::class, "blogPage"])->name('blog');
 Route::get('/article/{id}', [PagesController::class, "articlePage"]);
+Route::post('/article', [ArticlesController::class, "store"]);
+Route::post('/article/delete', [ArticlesController::class, "destroy"]);
+Route::get('/article/{id}/update', [PagesController::class, "articleUpdatePage"]);
+Route::post('/article/update', [ArticlesController::class, "update"]);

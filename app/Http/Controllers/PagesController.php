@@ -30,4 +30,16 @@ class PagesController extends Controller
             "comments" => $article->comments
         ]);
     }
+
+
+    public function articleUpdatePage($id) {
+        $article = Article::find($id);
+        if (!$article) {
+            return abort(404);
+        }
+
+        return view('article_update', [
+            "article" => $article
+        ]);
+    }
 }
