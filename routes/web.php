@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,17 @@ use App\Http\Controllers\ArticlesController;
 |
 */
 
-Route::get('/', [PagesController::class, "blogPage"])->name('blog');
+// Route::get('/', [PagesController::class, "blogPage"])->name('blog');
 Route::get('/article/{id}', [PagesController::class, "articlePage"]);
 Route::post('/article', [ArticlesController::class, "store"]);
 Route::post('/article/delete', [ArticlesController::class, "destroy"]);
 Route::get('/article/{id}/update', [PagesController::class, "articleUpdatePage"]);
 Route::post('/article/update', [ArticlesController::class, "update"]);
+Route::get('/students', [StudentsController::class, "students"]);
+
+Route::get('/test', [PagesController::class, "test"]);
+Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
