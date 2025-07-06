@@ -49,4 +49,12 @@ class PagesController extends Controller
             // "user" => Auth::user()
         ]);
     }
+
+    public function admin() {
+        return view('admin');
+    }
+
+    public function emailConfirm() {
+        return view('emailconfirm');
+    }
 }
